@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract ReVerdeNFT is ERC721, Ownable {
+contract ReverdiNFT is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
@@ -19,7 +19,7 @@ contract ReVerdeNFT is ERC721, Ownable {
     error URISetOfNonexistentToken();
     error URIQueryForNonexistentToken();
 
-    constructor(address _rvdTokenAddress) ERC721("ReVerdeNFT", "RVDNFT") Ownable(msg.sender) {
+    constructor(address _rvdTokenAddress) ERC721("ReverdiNFT", "RVDNFT") Ownable(msg.sender) {
         rvdToken = IERC20(_rvdTokenAddress);
     }
 

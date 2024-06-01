@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract ReVerdeToken is ERC20, Ownable {
+contract ReverdiToken is ERC20, Ownable {
     IERC20 public usdcToken;
     address public treasuryAddress;
 
@@ -16,7 +16,7 @@ contract ReVerdeToken is ERC20, Ownable {
     error TokenTransferFailed();
     error CoinTransferFailed();
 
-    constructor(address _usdcTokenAddress, address _treasuryAddress) ERC20("ReVerde", "RVD") Ownable(msg.sender) {
+    constructor(address _usdcTokenAddress, address _treasuryAddress) ERC20("Reverdi", "RVD") Ownable(msg.sender) {
         usdcToken = IERC20(_usdcTokenAddress);
         treasuryAddress = _treasuryAddress;
     }
