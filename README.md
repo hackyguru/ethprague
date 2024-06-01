@@ -22,7 +22,9 @@ Spread the message and remind **THEM** to redeem themselves from the **Green Deb
 **Check out our slides - [here](https://github.com/hackyguru/ethprague/blob/master/SLIDES.md) <br><br>**
 **Check out our demo - [here]() <br><br>**
 **Check out our live site - [here]() <br><br>**
+
 **Check out our hackathon submission - [here](https://devfolio.co/projects/reverdi-d60a) <br><br>**
+**Check out our visual inspiration - [here](https://github.com/hackyguru/ethprague/blob/master/VISINSPO.md) <br><br>**
 
 ## Deployments
 
