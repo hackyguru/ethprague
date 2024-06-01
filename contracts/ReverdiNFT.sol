@@ -69,4 +69,9 @@ contract ReverdiNFT is ERC721, Ownable {
     function getTokenIdByAddress(address user) external view returns (uint256) {
         return _userTokenId[user];
     }
+
+    // Override transferFrom to prevent transfers
+    function transferFrom(address, address, uint256) public pure override {
+        revert TransferNotAllowed();
+    }
 }
