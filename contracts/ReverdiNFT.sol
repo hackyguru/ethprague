@@ -13,20 +13,28 @@ contract ReverdiNFT is ERC721, Ownable {
     IERC20 public rvdToken;
     mapping(uint256 => string) private _tokenURIs;
     mapping(address => uint256) public userDebt;
+    mapping(address => bool) private _hasMinted;
+    mapping(address => uint256) private _userTokenId;
 
     error InsufficientRVD();
     error InvalidDebtAmount();
     error URISetOfNonexistentToken();
     error URIQueryForNonexistentToken();
+    error AlreadyMinted();
+    error TransferNotAllowed();
 
     constructor(address _rvdTokenAddress) ERC721("ReverdiNFT", "RVDNFT") Ownable(msg.sender) {
         rvdToken = IERC20(_rvdTokenAddress);
     }
 
     function mintNFT() external {
+        if (_hasMinted[msg.sender]) {revert AlreadyMinted();}
+        
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
         _mint(msg.sender, newTokenId);
+        _hasMinted[msg.sender] = true;
+        _userTokenId[msg.sender] = newTokenId;
         checkAndUpdateNFTState(newTokenId);
     }
 
@@ -56,5 +64,9 @@ contract ReverdiNFT is ERC721, Ownable {
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         return _tokenURIs[tokenId];
+    }
+
+    function getTokenIdByAddress(address user) external view returns (uint256) {
+        return _userTokenId[user];
     }
 }
