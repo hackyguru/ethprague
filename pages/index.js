@@ -1,118 +1,167 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient";
+import { Calculator, Replace, Search, ShieldCheck, Sprout, X } from "lucide-react";
+import { useState } from "react";
+import { MultiStepLoader } from "@/components/ui/multistep-loader";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
+  const loadingStates = [
+    {
+      text: "Validating the Ethereum address",
+    },
+    {
+      text: "Fetching data from TheGraph Substreams",
+    },
+    {
+      text: "Fetching data from Alchemy",
+    },
+    {
+      text: "Calculating the energy usage",
+    },
+    {
+      text: "Visualizing the data",
+    },
+  ];
+
+  const [loading, setLoading] = useState(true);
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+    <main className=''>
+      <BackgroundGradientAnimation>
+        {loading ?
+          <div className="absolute z-50 w-full min-h-screen">
+
+            <div className="flex justify-between p-5 items-center">
+              <div className="outfit text-3xl space-x-2 flex items-center">
+                <Sprout className="text-[#e3f568] h-8 w-8" />
+                <h1>Riverdi</h1>
+              </div>
+              <Button variant="glass">Connect wallet</Button>
+            </div>
+            <div className="text-center mt-20 space-y-10">
+              <h1 className="bebas text-9xl">Is your wallet debted
+                <br />
+                to the environment?
+              </h1>
+            </div>
+            <div className="flex mt-20 justify-center z-50">
+              <div className="flex w-full max-w-4xl items-center space-x-2">
+                <Input className="text-lg p-6" placeholder="Enter a wallet address" />
+                <Button onClick={() => { setLoading(true) }} className="p-6" variant="primary" type="submit">
+                  <Search />
+                </Button>
+              </div>
+            </div>
+            <div className="flex space-x-20 justify-center h-32 mt-20">
+              <div className="rounded-md text-stone-800 p-4 bg-[#e3f568] w-60 space-y-4">
+                <div className="flex space-x-2 items-center">
+                  <Calculator />
+                  <h1 className=" text-left outfit">Energy calculation</h1>
+                </div>
+                <h3 className="text-left text-xs">Calculate your energy usage using publicly available on-chain data fetched from TheGraph</h3>
+                <h2></h2>
+              </div>
+              <div className="rounded-md text-stone-800 p-4 bg-[#e3f568] w-60 space-y-4">
+                <div className="flex space-x-2 items-center">
+                  <ShieldCheck />
+                  <h1 className=" text-left outfit">Reputation</h1>
+                </div>
+                <h3 className="text-left text-xs">Increase your onchain reputation by credentializing your energy and sustainability scores</h3>
+                <h2></h2>
+              </div>
+              <div className="rounded-md text-stone-800 p-4 bg-[#e3f568] w-60 space-y-4">
+                <div className="flex space-x-2 items-center">
+                  <Replace />
+                  <h1 className=" text-left outfit">Public offsetting</h1>
+                </div>
+                <h3 className="text-left text-xs">Offset your energy usage towards impactful public goods funding that contribute to sustainable goals</h3>
+                <h2></h2>
+              </div>
+            </div>
+          </div>
+          :
+          <div className="absolute z-50 w-full min-h-screen">
+            <div className="flex justify-between p-5 items-center">
+              <div className="outfit text-3xl space-x-2 flex items-center">
+                <Sprout className="text-[#e3f568] h-8 w-8" />
+                <h1>Riverdi</h1>
+              </div>
+              <Button variant="glass">Connect wallet</Button>
+            </div>
+            <div className="p-10 w-full">
+              <div className="flex justify-between w-full space-x-5">
+                <div className="w-1/2">
+
+                  <div className="bg-clip-padding flex w-full justify-between backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-400 p-6 rounded-md">
+                    <div className="space-y-5">
+                      <h1>Your wallet</h1>
+                      <h1 className="text-6xl bebas">0x...abc</h1>
+                    </div>
+                    <div className="w-80 bg-gradient-to-r from-cyan-500 to-green-500 bg-opacity-30 rounded-lg">
+                      <h1>Your</h1>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-1/2">
+                  <div className="bg-clip-padding h-80 flex w-full justify-between backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-400 p-6 rounded-md">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-[100px]">Volume</TableHead>
+                          <TableHead>Power</TableHead>
+                          <TableHead>Description</TableHead>
+                          <TableHead className="text-right">Total kW</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <marquee className="" width direction="down">
+                      <TableBody>
+
+                        <TableRow className="w-full">
+                          <TableCell className="font-medium">100</TableCell>
+                          <TableCell>0.002</TableCell>
+                          <TableCell>ERC20 Transactions</TableCell>
+                          <TableCell className="text-right">0.2</TableCell>
+                        </TableRow>
+                        <TableRow className="w-full">
+                          <TableCell className="font-medium">1</TableCell>
+                          <TableCell>0.002</TableCell>
+                          <TableCell>ERC721 Transactions</TableCell>
+                          <TableCell className="text-right">0.002</TableCell>
+                        </TableRow>
+                      </TableBody>
+                      </marquee>
+                    </Table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+
+        <MultiStepLoader loadingStates={loadingStates} loading={loading} duration={2000} />
+
+        {loading && (
+          <button
+            className="fixed top-4 right-4 text-black dark:text-white z-[120]"
+            onClick={() => setLoading(false)}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            <X className="h-10 w-10" />
+          </button>
+        )}
+      </BackgroundGradientAnimation>
     </main>
   );
 }
