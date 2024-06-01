@@ -30,10 +30,9 @@ contract ReverdiNFT is ERC721, Ownable {
         checkAndUpdateNFTState(newTokenId);
     }
 
-    function updateDebt(address user, uint256 debtAmount) external onlyOwner {
-        if (debtAmount <= 0) {
-            revert InvalidDebtAmount();
-        }
+    // Unlocked for proof of concept demo, lock on live deploy
+    function updateDebt(address user, uint256 debtAmount) external {
+        if (debtAmount <= 0) {revert InvalidDebtAmount();}
         userDebt[user] = debtAmount;
     }
 
@@ -42,10 +41,12 @@ contract ReverdiNFT is ERC721, Ownable {
         uint256 debt = userDebt[owner];
         uint256 balance = rvdToken.balanceOf(owner);
 
-        if (balance >= debt) {
-            _setTokenURI(tokenId, "ipfs://GREEN_VERSION_CID");
+        if (balance > debt) {
+            // Green Version
+            _setTokenURI(tokenId, "https://bafybeihbbmb6b7bteqq7dh4preec2vhoughj3up55dk3f7dkreon2byoga.ipfs.w3s.link/");
         } else {
-            _setTokenURI(tokenId, "ipfs://RED_VERSION_CID");
+            // Red Version
+            _setTokenURI(tokenId, "https://bafybeiextaclv5mlnfgzjaj4l37hxo7n273yowksapoeo6yh2wsmc2bhaq.ipfs.w3s.link/");
         }
     }
 

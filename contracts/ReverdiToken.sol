@@ -28,7 +28,7 @@ contract ReverdiToken is ERC20, Ownable {
         bool sent = usdcToken.transferFrom(msg.sender, address(this), _amount);
         if (!sent) {revert TokenInputTransferFailed();}
 
-        // Mint ReVerde tokens to user at a 1:1 ratio
+        // Mint Reverdi tokens to user at a 1:1 ratio
         _mint(msg.sender, _amount);
 
         // Transfer USDC to treasury address
