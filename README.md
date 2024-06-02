@@ -20,7 +20,6 @@ It might be a wake-up call, but knowledge is power!
 Spread the message and remind **THEM** to redeem themselves from the **Green Debt**. Reverdi allows for creation of offset treasury which is further utilized in creation of **Environmental Cause Matching Pool** via @Gitcoin.
 
 **Check out our slides - [here](https://github.com/hackyguru/ethprague/blob/master/SLIDES.md) <br><br>**
-**Check out our demo - [here]() <br><br>**
 
 **Check out our hackathon submission - [here](https://devfolio.co/projects/reverdi-d60a) <br><br>**
 **Check out our visual inspiration - [here](https://github.com/hackyguru/ethprague/blob/master/VISINSPO.md) <br><br>**
