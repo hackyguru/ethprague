@@ -11,7 +11,7 @@ Ignoring the bill won’t make it disappear. Rising sea levels, extreme weather,
 
 **STOP DIGGING THE ENVIRONMENTAL HOLE!**
 
-![user flow (3)](https://github.com/hackyguru/ethprague/assets/101796507/539ad4ec-b7af-47be-abef-1a2972195cb8)
+![user flow (4)](https://github.com/hackyguru/ethprague/assets/101796507/c3460f3e-4932-42cb-ba6a-edec26d66031)
 
 We can’t fix what we don’t measure. **Reverdi** allows you to calculate the carbon footprint of your favorite .dapps allowing you to see exactly how their choices impacted the planet.
 
