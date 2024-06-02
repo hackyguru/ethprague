@@ -193,7 +193,7 @@ export default function Home() {
              
              
               <div className="flex justify-center"> 
-                <Button className="text-2xl" onClick={() => {open()}} variant="primary">{!isConnected ? "Connect wallet" : `Connected to 0x...${address.slice(-4)}`}</Button> </div>
+                <Button className="text-4xl" onClick={() => {open()}} variant="secondary">{!isConnected ? "Connect wallet" : `Connected to 0x...${address.slice(-4)}`}</Button> </div>
               </div>
             <div className="flex space-x-20 justify-center h-32 mt-20">
               <div className="rounded-md text-stone-800 p-4 bg-[#e3f568] w-60 space-y-4">
