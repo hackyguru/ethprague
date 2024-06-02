@@ -61,7 +61,7 @@ export default function Home() {
   ];
 
   const { open } = useWeb3Modal()
-  const { address, chainId, isConnected } = useWeb3ModalAccount()
+  const { address, isConnected } = useWeb3ModalAccount()
 
 
   const radialdata = [
@@ -183,7 +183,7 @@ export default function Home() {
                 <Sprout className="text-[#e3f568] h-8 w-8" />
                 <h1>Riverdi</h1>
               </div>
-              <Button onClick={() => {open()}} variant="glass">{!isConnected ? "Connect wallet" : `Connected to 0x...${address.slice(-4)}`}</Button>
+              <Button onClick={() => {open()}} variant="glass">{!isConnected ? "Connect wallet" : ``}</Button>
             </div>
             <div className="text-center mt-20 space-y-10">
               <h1 className="bebas text-9xl">Is your wallet debted
@@ -233,7 +233,7 @@ export default function Home() {
                 <Sprout className="text-[#e3f568] h-8 w-8" />
                 <h1>Riverdi</h1>
               </div>
-              <Button onClick={() => open()} variant="glass">{`Connected to 0x...${address.slice(-4)}`}</Button>
+              <Button onClick={() => open()} variant="glass">{`Connected to ur`}</Button>
             </div>
             <div className="p-10 w-full">
               <div className="flex justify-between w-full space-x-5">
@@ -242,7 +242,7 @@ export default function Home() {
                   <div className="bg-clip-padding flex w-full justify-between backdrop-filter backdrop-blur-xl bg-opacity-5 bg-white border border-gray-400 p-6 rounded-md">
                     <div className="space-y-5">
                       <h1>Your wallet</h1>
-                      <h1 className="text-6xl bebas">0x...{address.slice(-4)}</h1>
+                      <h1 className="text-6xl bebas">0x...{}</h1>
                     </div>
                     <div className="w-80 p-3 items-end flex justify-between bg-gradient-to-r from-green-500 to-[#e3f568] bg-opacity-30 rounded-lg">
                       <div>
