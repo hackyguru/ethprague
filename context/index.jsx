@@ -7,7 +7,7 @@ const projectId = '8d53447b99692950f79d171972bb6d97'
 
 // 2. Set chains
 const mainnet = {
-  chainId: 1,
+  chainId: 11155111,
   name: 'Ethereum',
   currency: 'ETH',
   explorerUrl: 'https://etherscan.io',

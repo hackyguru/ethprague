@@ -349,7 +349,7 @@ export default function Home() {
                   </div>
                   <div className="mt-10 space-y-5 h-40 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-5 bg-white border border-gray-400 p-6 rounded-md">
                     <div className="flex justify-center mt-3">
-                      <Button variant="primary" className="bebas text-3xl">MINT SOULBOUND NFT</Button>
+                      <Button variant="primary" className="bebas text-3xl" onClick={mintNFT}>MINT SOULBOUND NFT</Button>
                     </div>
                     <h3 className="text-center text-stone-300">Mint a dynamic soulbound NFT to credentialize your reputation on-chain</h3>
                   </div>
